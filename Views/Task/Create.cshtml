@@ -1,0 +1,19 @@
+﻿@model TaskList.Models.ToDoTask
+
+<h1>Добавить новую задачу</h1>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="Title">Заголовок</label>
+        <input asp-for="Title" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Description">Описание</label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label asp-for="IsCompleted">Выполнена</label>
+        <input type="checkbox" asp-for="IsCompleted" />
+    </div>
+    <button type="submit" class="btn btn-primary">Добавить</button>
+</form>

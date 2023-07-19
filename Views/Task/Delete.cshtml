@@ -1,0 +1,15 @@
+﻿@model TaskList.Models.ToDoTask
+
+<h1>Удалить задачу</h1>
+
+<p>Вы уверены, что хотите удалить следующую задачу?</p>
+<p>
+    <strong>Заголовок:</strong> @Model.Title<br />
+    <strong>Описание:</strong> @Model.Description<br />
+    <strong>Выполнена:</strong> @Model.IsCompleted
+</p>
+
+<form asp-action="Delete" asp-route-id="@Model.TaskId" method="post">
+    <button type="submit" class="btn btn-danger">Удалить</button>
+    <a asp-action="Index" class="btn btn-secondary">Отмена</a>
+</form>

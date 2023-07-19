@@ -1,0 +1,36 @@
+﻿<!-- Указываем модель данных для представления -->
+@model List<TaskList.Models.ToDoTask>
+
+<h1>Список задач</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Заголовок</th>
+            <th>Описание</th>
+            <th>Выполнена</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var task in Model)
+        {
+            <tr>
+                <td>@task.Title</td>
+                <td>@task.Description</td>
+                <td>
+                    <label class="checkbox-container">
+                        <input type="checkbox" asp-for="@task.IsCompleted" />
+                        <span class="checkmark"></span>
+                    </label>
+                </td>
+                <td>
+                    <div class="btn-group">
+                        <a asp-action="Edit" asp-route-id="@task.TaskId" class="btn btn-primary">Редактировать</a>
+                        <a asp-action="Delete" asp-route-id="@task.TaskId" class="btn btn-danger" onclick="return confirm('Вы уверены, что хотите удалить эту задачу?')">Удалить</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
